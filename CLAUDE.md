@@ -6,17 +6,17 @@
 - **Location**: Madison, MS 39110 (Falls Crossing / Carpenter Cove area)
 - **Contact**: Taylor Hannon, 601-405-4281, taylor@hellodarlingdesigns.net
 - **Social Media**:
-  - Facebook: Darling Drink Company
-  - Instagram: @DarlingDrinkCo
-- **Press**: Featured on WJTV Channel 12
+  - Facebook: [Darling Drink Company Group](https://www.facebook.com/groups/1729197157753383)
+  - Instagram: [@DarlingDrinkCo](https://www.instagram.com/DarlingDrinkCo)
+- **Press**: Featured on WJTV Channel 12 (Jackson, MS)
 
 ## What They Offer
-- **Specialty Lemonades** (e.g., "Blush and Bashful", "The Alanis")
+- **Specialty Lemonades** (e.g., "Blush and Bashful", "The Alanis", "Southern Charm", "Pink Ladies", "Fruit Loop")
 - **Dirty Sodas** (Sprite, Dr Pepper, A&W based drinks with cream/flavors)
-- **Dirty Energy Drinks**
-- **Hot Chocolate** (seasonal)
+- **Dirty Energy Drinks** (custom energy drinks with flavor combos and cream)
+- **Hot Chocolate** (seasonal/winter)
 - **Snacks**: Popcorn
-- Served from a mobile drink trailer
+- Served from a pink mobile drink trailer with branded cups
 
 ## Event Types
 - Vendor events
@@ -24,43 +24,100 @@
 - Sports events
 - Festivals
 - Grand openings
-- Parties
+- Birthday parties / Weddings
 - Neighborhood gatherings
+- Corporate events
 
 ## Branding
 - **Trailer**: Pink mobile drink trailer
-- **Logo**: Lemon/citrus glass with straw, floral accents, "DARLING" in bold serif, "Drink Company" below
-- **Primary Colors**: Pink (#E8A0BF soft pink), rose/blush, white
-- **Accent Colors**: Mint/teal, soft coral
+- **Logo**: Lemon/citrus glass with straw, floral accents, "DARLING" in bold serif, "Drink Company" below (file: `/companyinfo/logo.png`)
+- **Primary Colors**: Rose pink (#E8A0BF), blush (#fda4af), white (#fff1f2)
+- **Accent Colors**: Mint/teal (#a7f3d0, #6ee7b7)
 - **Aesthetic**: Feminine, sweet, fun, approachable — cohesive pink branding throughout
 - **Branded cups** with Darling Drink Company stickers
 - **Feather flag**: "LEMONADE" / "SODA" banner at events
 
 ## Reference Images
-- Company photos and marketing materials are in `/companyinfo/`
-- Includes trailer photos, flyer designs, press appearance photos, drink photos, and event graphics
+Company photos and marketing materials are in `/companyinfo/`. Renamed copies are in `/public/images/` for use on the site:
 
-## Website Requirements
-- **Type**: Single-page scrolling site — no marketplace, no e-commerce
-- **Layout**: Single page with sticky nav that smooth-scrolls to sections on click
-- **Sections**: Hero, About Us, What We Serve, Testimonials (filler OK), As Seen On TV (WJTV), Book Us (contact form with calendar picker), Footer
-- **Contact Form**: Booking form with calendar date picker for event dates; submissions via Formspree to taylor@hellodarlingdesigns.net
-- **Form Fields**: Name, Email, Phone, Event Type (dropdown), Event Date (calendar picker), Event Location, Estimated Guest Count, Message
-- **Content**: Real business data; filler reviews/testimonials are OK for now
-- **Images**: Use actual photos and illustrated graphics from `/companyinfo/`; logo at `/companyinfo/logo.png`
-- **Phone**: Display 601-405-4281 publicly on site
-- **Social Links**: Facebook group (with FB icon) + Instagram @DarlingDrinkCo (with IG icon)
+| Source File | Public Path | Description |
+|---|---|---|
+| `logo.png` | `images/logo.png` | Company logo |
+| `585616436_*.jpg` | `images/deedee-serving.jpg` | Dee Dee serving at the trailer window |
+| `600547058_*.jpg` | `images/trailer-holiday.jpg` | Trailer with holiday balloon decorations |
+| `622764354_*.jpg` | `images/trailer-side.jpg` | Full side view of trailer |
+| `638005029_*.jpg` | `images/trailer-outdoor.jpg` | Trailer at outdoor event with LEMONADE flag |
+| `644559671_*.jpg` | `images/flyer-info.jpg` | Business info flyer (contact, services) |
+| `645424368_*.jpg` | `images/flyer-booking.jpg` | Spring booking promo (illustrated) |
+| `647261312_*.jpg` | `images/drink-pink.jpg` | Pink drink with branded cup + popcorn |
+| `648149974_*.jpg` | `images/wjtv-promo.jpg` | "As Seen On" WJTV promo graphic |
+| `649350397_*.jpg` | `images/wjtv-visit.jpg` | Taylor & Dee Dee at WJTV station |
+| `649594705_*.jpg` | `images/wjtv-filming.jpg` | WJTV filming at the trailer |
+| `651326127_*.jpg` | `images/taylor-deedee.jpg` | Taylor & Dee Dee portrait at trailer |
+| `652676166_*.jpg` | `images/flyer-march.jpg` | March event dates flyer |
 
-## Design Direction
-- **Theme**: Rose pink with glassmorphism (frosted glass panels)
-- **Primary Colors**: Rose pink (from trailer/logo), blush, white
-- **Accent Colors**: Mint/teal (from balloon colors in photos)
-- **Fonts**: Fun Google Fonts — no browser plugins required
-- **Animations**: Scroll-triggered animations, modern transitions
-- **Style**: Glassmorphism, modern, feminine, playful but polished
-- **Plugin**: Use frontend-design plugin guidance for design quality
+## Tech Stack
+- **Framework**: Next.js 16 (React 19) with App Router
+- **Styling**: Tailwind CSS v4 + custom CSS (glassmorphism)
+- **Animations**: Framer Motion (scroll-triggered + hover effects)
+- **Date Picker**: react-datepicker (styled to match theme)
+- **Fonts**: Google Fonts via next/font — Pacifico (headings) + Quicksand (body)
+- **Form Handling**: Formspree (free tier, 50 submissions/month)
+- **Static Export**: `next build` outputs to `/out/` for GitHub Pages
+- **TypeScript**: Strict mode enabled
 
-## Project Setup
-- **Repo**: https://github.com/DustinHannon/DarlingDrinkCompany
-- **Tech stack**: Next.js (React) + Tailwind CSS + Framer Motion
-- **Hosting**: GitHub Pages (static export)
+## Project Structure
+```
+DarlingDrinkCompany/
+├── .github/workflows/deploy.yml   # GitHub Actions: build + deploy to Pages
+├── companyinfo/                    # Original source photos and text
+├── public/images/                  # Renamed images used by the site
+├── src/
+│   ├── app/
+│   │   ├── globals.css             # Tailwind theme, glassmorphism classes, date picker styles
+│   │   ├── layout.tsx              # Root layout (fonts, metadata, SEO)
+│   │   └── page.tsx                # Main page (assembles all sections)
+│   └── components/
+│       ├── AnimatedSection.tsx      # Reusable scroll-triggered fade-in wrapper
+│       ├── Navbar.tsx               # Sticky nav with smooth-scroll + mobile hamburger
+│       ├── Hero.tsx                 # Hero section with logo, tagline, CTAs
+│       ├── About.tsx                # "Our Story" section with photos
+│       ├── Menu.tsx                 # Drink menu cards (4 categories)
+│       ├── Reviews.tsx              # Customer testimonials (1 real + 5 filler)
+│       ├── Press.tsx                # "As Seen On TV" WJTV feature section
+│       ├── BookUs.tsx               # Booking form with date picker + Formspree
+│       └── Footer.tsx               # Contact info, event list, social links
+├── next.config.ts                   # Static export + GitHub Pages basePath
+├── postcss.config.mjs               # Tailwind CSS v4 PostCSS plugin
+├── tsconfig.json                    # TypeScript config with @/* path alias
+└── package.json
+```
+
+## Deployment
+- **Hosting**: GitHub Pages at https://dustinhannon.github.io/DarlingDrinkCompany/
+- **CI/CD**: GitHub Actions workflow (`.github/workflows/deploy.yml`) — auto-deploys on push to `master`
+- **Process**: Push to master → Actions builds with `npm run build` → uploads `/out/` → deploys to Pages
+- **basePath**: Set to `/DarlingDrinkCompany` in production for GitHub Pages subpath routing
+
+## Setup for Contact Form (Formspree)
+The booking form currently uses a **placeholder** Formspree endpoint. To activate:
+1. Sign up at https://formspree.io (free tier = 50 submissions/month)
+2. Create a new form, set recipient to `taylor@hellodarlingdesigns.net`
+3. Copy the form endpoint ID (the part after `/f/`)
+4. Update `src/components/BookUs.tsx` line 43: replace `xpwdqjkl` with the real endpoint ID
+5. Push to master — the workflow will auto-deploy
+
+## Design Decisions
+- **Single-page scrolling** — best for a service-based mobile business; all info in one flow
+- **Glassmorphism** — frosted glass panels (`.glass`, `.glass-strong`, `.glass-dark`) over a pink gradient background
+- **No dark mode** — brand is inherently light/pink; dark mode would fight the aesthetic
+- **Static export** — no server needed; fast, free hosting on GitHub Pages
+- **Filler reviews** — clearly marked as filler in code; 1 real review from Facebook included
+- **basePath conditional** — development runs at `/`, production at `/DarlingDrinkCompany` for GitHub Pages
+
+## Commands
+```bash
+npm run dev        # Start dev server at http://localhost:3000
+npm run build      # Build static export to /out/
+npm run lint       # Run ESLint
+```
