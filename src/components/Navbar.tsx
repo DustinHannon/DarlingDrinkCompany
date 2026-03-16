@@ -46,17 +46,14 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <button onClick={() => handleClick("#home")} className="flex items-center gap-3 cursor-pointer">
+          <button onClick={() => handleClick("#home")} className="flex items-center cursor-pointer">
             <Image
               src={`${basePath}/images/logo.png`}
               alt="Darling Drink Company"
-              width={48}
-              height={48}
-              className="rounded-full"
+              width={140}
+              height={56}
+              className="h-12 sm:h-14 w-auto object-contain"
             />
-            <span className="font-heading text-lg sm:text-xl text-rose-600 hidden sm:block">
-              Darling Drink Co.
-            </span>
           </button>
 
           {/* Desktop nav */}

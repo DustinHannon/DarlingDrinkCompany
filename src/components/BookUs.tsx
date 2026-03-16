@@ -40,7 +40,7 @@ export default function BookUs() {
     }
 
     try {
-      await fetch("https://formspree.io/f/xpwdqjkl", {
+      await fetch("https://formspree.io/f/mykndrbk", {
         method: "POST",
         body: formData,
         headers: { Accept: "application/json" },

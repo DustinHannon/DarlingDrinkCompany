@@ -6,44 +6,77 @@ import AnimatedSection from "./AnimatedSection";
 
 const menuCategories = [
   {
-    title: "Specialty Lemonades",
+    title: "32 oz. Lemonades",
     icon: "🍋",
-    description: "Our signature hand-crafted lemonades with creative flavor combinations that keep you coming back for more.",
+    price: "Plain $7 / Flavored $8",
     items: [
-      { name: "Blush and Bashful", desc: "A fan-favorite pink lemonade with a sweet, rosy twist" },
-      { name: "The Alanis", desc: "Bold and refreshing with a citrus kick you won't forget" },
-      { name: "Southern Charm", desc: "Classic southern lemonade with a hint of peach" },
-      { name: "Pink Ladies", desc: "Sweet strawberry lemonade with a splash of love" },
-      { name: "Fruit Loop", desc: "A playful, fruity lemonade bursting with tropical flavors" },
+      "Strawberry", "Blue Raspberry", "Mango", "Pineapple", "Watermelon",
+      "Peach", "Coconut", "Granny Smith Apple", "Cherry", "Blue Cotton Candy",
     ],
   },
   {
-    title: "Dirty Sodas",
+    title: "Specialty Lemonades",
+    icon: "✨",
+    price: "$8",
+    items: [
+      { name: "Tropical Sunrise", desc: "Watermelon + Mango + Coconut" },
+      { name: "Pina Colada", desc: "Coconut + Pineapple" },
+      { name: "Blue Hawaiian", desc: "Coconut + Blue Raspberry + Pineapple" },
+      { name: "Arnold Palmer", desc: "Lemonade + Sweet Tea" },
+      { name: "The Abby", desc: "Peach + Watermelon + Mango" },
+      { name: "Caramel Apple", desc: "Granny Smith Apple + Caramel Drizzle" },
+    ],
+  },
+  {
+    title: "Dirty Sodas with Cream",
     icon: "🥤",
-    description: "Your favorite sodas jazzed up with flavored syrups, cream, and fresh fruit for the ultimate treat.",
+    price: "$10",
     items: [
-      { name: "Dirty Dr Pepper", desc: "Dr Pepper with coconut cream and a flavor shot" },
-      { name: "Dirty Sprite", desc: "Sprite with fresh lime, coconut, and sweet cream" },
-      { name: "Dirty A&W", desc: "Root beer elevated with vanilla cream and caramel" },
+      { name: "Southern Dew", desc: "Mountain Dew + Watermelon + Peach + Cream" },
+      { name: "The Darling", desc: "Choice of Soda + Vanilla + Cream" },
+      { name: "Coconut Wave", desc: "Sprite + Blue Raspberry + Coconut Cream" },
+      { name: "Butter Beer Coke", desc: "Coke + Vanilla + Caramel + Cream" },
+      { name: "Pink Ladies", desc: "Sprite + Strawberry + Vanilla + Coconut Cream" },
+      { name: "Southern Charm", desc: "Dr. Pepper + Cherry + Vanilla + Cream" },
+      { name: "Strawberry Sundrop", desc: "Sunkist + Strawberry + Pineapple + Cream" },
     ],
   },
   {
-    title: "Dirty Energy Drinks",
+    title: "Dirty Sodas w/out Cream",
+    icon: "🧊",
+    price: "$10",
+    items: [
+      { name: "Hawaiian Coke", desc: "Coke + Pineapple + Cherry" },
+      { name: "Strawberry Refresher", desc: "Lemonade + Sprite + Strawberry" },
+      { name: "Neon Nights", desc: "Sprite + Blue Raspberry + Pineapple Juice" },
+      { name: "Fruit Loop", desc: "Sprite + Strawberry + Watermelon + Pineapple" },
+    ],
+  },
+  {
+    title: "Dirty Alanis",
     icon: "⚡",
-    description: "Need a boost? Our energy drinks are customized with fun flavors and cream for a delicious pick-me-up.",
+    price: "$10",
     items: [
-      { name: "Custom Energy", desc: "Choose your energy base with your favorite flavor combo" },
+      { name: "Sunburst", desc: "Orange Kiss Alani + Vanilla + Coconut + Peach + Cream" },
+      { name: "Cherry Jubilee", desc: "Cherry Twist Alani + Cherry + Peach + Mango + Cream" },
+      { name: "Blush & Bashful", desc: "Pink Slush Alani + Pineapple + Vanilla + Strawberry + Cream" },
     ],
   },
   {
-    title: "Seasonal Specials",
-    icon: "☕",
-    description: "Rotating seasonal offerings to match the mood — from cozy hot chocolate to refreshing summer sips.",
+    title: "Drinks & Snacks",
+    icon: "🍿",
+    price: null,
     items: [
-      { name: "Hot Chocolate", desc: "Rich, creamy hot chocolate perfect for chilly event nights" },
+      { name: "32oz Sweet Tea", desc: "$5" },
+      { name: "Soft Drinks", desc: "$4" },
+      { name: "Ice Water", desc: "$3" },
+      { name: "Candy", desc: "$2" },
+      { name: "Nachos", desc: "$8" },
     ],
   },
 ];
+
+type MenuItem = string | { name: string; desc: string };
 
 export default function Menu() {
   const basePath = process.env.NODE_ENV === "production" ? "/DarlingDrinkCompany" : "";
@@ -62,7 +95,7 @@ export default function Menu() {
             Our Menu
           </h2>
           <p className="text-center text-rose-600/70 text-lg mb-16 max-w-2xl mx-auto">
-            From specialty lemonades to dirty sodas and energy drinks — there&apos;s something sweet for everyone.
+            From specialty lemonades to dirty sodas and dirty Alanis energy drinks — there&apos;s something sweet for everyone.
           </p>
         </AnimatedSection>
 
@@ -79,28 +112,36 @@ export default function Menu() {
           </div>
         </AnimatedSection>
 
-        <div className="grid sm:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {menuCategories.map((category, i) => (
-            <AnimatedSection key={category.title} delay={0.1 * i}>
+            <AnimatedSection key={category.title} delay={0.08 * i}>
               <motion.div
                 whileHover={{ y: -4, scale: 1.01 }}
                 transition={{ duration: 0.3 }}
-                className="glass rounded-3xl p-8 h-full"
+                className="glass rounded-3xl p-6 h-full"
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-3xl">{category.icon}</span>
-                  <h3 className="font-heading text-2xl text-rose-600">
+                <div className="flex items-center gap-3 mb-1">
+                  <span className="text-2xl">{category.icon}</span>
+                  <h3 className="font-heading text-xl text-rose-600">
                     {category.title}
                   </h3>
                 </div>
-                <p className="text-rose-700/60 text-sm mb-6">{category.description}</p>
-                <ul className="space-y-4">
-                  {category.items.map((item) => (
-                    <li key={item.name} className="flex flex-col">
-                      <span className="font-bold text-rose-800">{item.name}</span>
-                      <span className="text-sm text-rose-600/70">{item.desc}</span>
-                    </li>
-                  ))}
+                {category.price && (
+                  <p className="text-rose-500 font-bold text-sm mb-4 ml-10">{category.price}</p>
+                )}
+                <ul className="space-y-2 mt-3">
+                  {category.items.map((item: MenuItem, j: number) =>
+                    typeof item === "string" ? (
+                      <li key={j} className="text-sm text-rose-800/80 font-medium">
+                        {item}
+                      </li>
+                    ) : (
+                      <li key={item.name} className="flex flex-col">
+                        <span className="font-bold text-sm text-rose-800">{item.name}</span>
+                        <span className="text-xs text-rose-600/70">{item.desc}</span>
+                      </li>
+                    )
+                  )}
                 </ul>
               </motion.div>
             </AnimatedSection>
@@ -109,7 +150,7 @@ export default function Menu() {
 
         <AnimatedSection delay={0.3}>
           <p className="text-center text-rose-500/60 text-sm mt-12 italic">
-            Menu items may vary by event. Custom drinks and flavors available upon request!
+            Menu items and prices may vary by event. Custom drinks and flavors available upon request!
           </p>
         </AnimatedSection>
       </div>
