@@ -84,12 +84,14 @@ DarlingDrinkCompany/
 │   ├── CONTENT.md                     # Real vs filler content tracking
 │   └── DESIGN.md                      # Color palette, typography, animations
 ├── public/images/                     # Renamed images used by the site
+│   └── gallery/                      # Gallery page images (copied from companyinfo)
 ├── workingphotos/                     # Screenshots of site in progress (not deployed)
 ├── src/
 │   ├── app/
 │   │   ├── globals.css                # Tailwind theme, glassmorphism, date picker styles
 │   │   ├── layout.tsx                 # Root layout (fonts, metadata, SEO)
-│   │   └── page.tsx                   # Main page (assembles all sections)
+│   │   ├── page.tsx                   # Main page (assembles all sections)
+│   │   └── gallery/page.tsx           # Photo gallery with masonry layout + lightbox
 │   └── components/
 │       ├── AnimatedSection.tsx         # Reusable scroll-triggered fade-in wrapper
 │       ├── Navbar.tsx                  # Sticky nav with full logo + mobile hamburger
@@ -120,7 +122,8 @@ DarlingDrinkCompany/
 - **Config location**: `src/components/BookUs.tsx` line 43
 
 ## Design Decisions
-- **Single-page scrolling** — best for a service-based mobile business; all info in one flow
+- **Gallery as separate page** — `/gallery` route with masonry CSS columns, lightbox overlay, responsive auto-sizing (no image editing needed)
+- **Single-page scrolling (homepage)** — best for a service-based mobile business; all info in one flow
 - **Glassmorphism** — frosted glass panels (`.glass`, `.glass-strong`, `.glass-dark`) over a pink gradient background
 - **Hero logo in glass panel** — logo wrapped in frosted glass card to match site aesthetic (not a flat square)
 - **No text-shadow on gradient text** — removed because it was dimming the bottom of letters

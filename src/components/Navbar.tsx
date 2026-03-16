@@ -1,8 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+
+const basePath =
+  process.env.NODE_ENV === "production" ? "/DarlingDrinkCompany" : "";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -10,12 +15,15 @@ const navLinks = [
   { label: "Menu", href: "#menu" },
   { label: "Reviews", href: "#reviews" },
   { label: "As Seen On", href: "#press" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Book Us", href: "#book" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/" || pathname === basePath || pathname === basePath + "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -25,13 +33,17 @@ export default function Navbar() {
 
   const handleClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("#")) {
+      if (isHome) {
+        const el = document.querySelector(href);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        window.location.href = `${basePath}/${href}`;
+      }
     }
   };
-
-  const basePath = process.env.NODE_ENV === "production" ? "/DarlingDrinkCompany" : "";
 
   return (
     <motion.nav
@@ -46,7 +58,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <button onClick={() => handleClick("#home")} className="flex items-center cursor-pointer">
+          <Link href="/" className="flex items-center cursor-pointer">
             <Image
               src={`${basePath}/images/logo.png`}
               alt="Darling Drink Company"
@@ -54,19 +66,29 @@ export default function Navbar() {
               height={56}
               className="h-12 sm:h-14 w-auto object-contain"
             />
-          </button>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleClick(link.href)}
-                className="px-4 py-2 rounded-full text-sm font-semibold text-rose-700 hover:bg-rose-200/50 hover:text-rose-800 transition-all duration-300 cursor-pointer"
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith("#") ? (
+                <button
+                  key={link.href}
+                  onClick={() => handleClick(link.href)}
+                  className="px-4 py-2 rounded-full text-sm font-semibold text-rose-700 hover:bg-rose-200/50 hover:text-rose-800 transition-all duration-300 cursor-pointer"
+                >
+                  {link.label}
+                </button>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="px-4 py-2 rounded-full text-sm font-semibold text-rose-700 hover:bg-rose-200/50 hover:text-rose-800 transition-all duration-300"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
 
           {/* Mobile hamburger */}
@@ -101,15 +123,26 @@ export default function Navbar() {
             className="md:hidden glass-strong overflow-hidden"
           >
             <div className="px-4 py-4 flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => handleClick(link.href)}
-                  className="px-4 py-3 rounded-xl text-left font-semibold text-rose-700 hover:bg-rose-200/50 transition-all cursor-pointer"
-                >
-                  {link.label}
-                </button>
-              ))}
+              {navLinks.map((link) =>
+                link.href.startsWith("#") ? (
+                  <button
+                    key={link.href}
+                    onClick={() => handleClick(link.href)}
+                    className="px-4 py-3 rounded-xl text-left font-semibold text-rose-700 hover:bg-rose-200/50 transition-all cursor-pointer"
+                  >
+                    {link.label}
+                  </button>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="px-4 py-3 rounded-xl text-left font-semibold text-rose-700 hover:bg-rose-200/50 transition-all"
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
             </div>
           </motion.div>
         )}
