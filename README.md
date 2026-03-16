@@ -15,7 +15,7 @@ Darling Drink Company is run by Taylor Hannon and her mom, Dee Dee. They bring t
 - **Framer Motion** for scroll-triggered animations
 - **react-datepicker** for the event booking calendar
 - **Google Fonts** — Pacifico (headings) + Quicksand (body)
-- **Formspree** for contact form submissions
+- **Formspree** for contact form submissions (live)
 - **GitHub Pages** for hosting (auto-deployed via GitHub Actions)
 
 ## Getting Started
@@ -53,28 +53,26 @@ src/
 │   └── page.tsx             # Main page (all sections)
 └── components/
     ├── Navbar.tsx            # Sticky nav with smooth-scroll
-    ├── Hero.tsx              # Hero with logo, tagline, CTAs
+    ├── Hero.tsx              # Hero with glass logo panel, CTAs
     ├── About.tsx             # "Our Story" section
-    ├── Menu.tsx              # Drink menu (4 categories)
+    ├── Menu.tsx              # Full drink menu with real prices
     ├── Reviews.tsx           # Customer testimonials
     ├── Press.tsx             # "As Seen On TV" WJTV feature
-    ├── BookUs.tsx            # Booking form with date picker
+    ├── BookUs.tsx            # Booking form with date picker (Formspree)
     ├── Footer.tsx            # Contact, socials, event list
     └── AnimatedSection.tsx   # Scroll-triggered animation wrapper
 ```
 
+## Documentation
+
+- [`CLAUDE.md`](CLAUDE.md) — Full project guide for AI-assisted development
+- [`docs/DESIGN.md`](docs/DESIGN.md) — Color palette, typography, animations, glassmorphism specs
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — System architecture, data flow, key decisions
+- [`docs/CONTENT.md`](docs/CONTENT.md) — Real vs filler content tracking, menu details
+
 ## Deployment
 
 The site auto-deploys to GitHub Pages on every push to `master` via the GitHub Actions workflow at `.github/workflows/deploy.yml`.
-
-## Contact Form Setup
-
-The booking form uses [Formspree](https://formspree.io). To connect it:
-
-1. Create a free Formspree account
-2. Create a new form with the recipient email
-3. Replace the placeholder endpoint ID in `src/components/BookUs.tsx` (line 43)
-4. Push to `master` to deploy
 
 ## Contact
 

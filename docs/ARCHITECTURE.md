@@ -2,14 +2,14 @@
 
 ## Overview
 
-A statically-exported Next.js single-page application hosted on GitHub Pages. The site has no backend, no database, and no server-side rendering. All content is baked in at build time.
+A statically-exported Next.js single-page application hosted on GitHub Pages. The site has no backend, no database, and no server-side rendering. All content is baked in at build time. The contact form is the only external integration (Formspree).
 
 ## Architecture Diagram
 
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                    GitHub Pages CDN                      │
-│              dustinhannon.github.io/DarlingDrinkCompany  │
+│         dustinhannon.github.io/DarlingDrinkCompany       │
 └────────────────────────┬────────────────────────────────┘
                          │ serves static HTML/CSS/JS
                          │
@@ -45,11 +45,11 @@ A statically-exported Next.js single-page application hosted on GitHub Pages. Th
 └──────────────────────────────────────────────────────────┘
 
 External Services:
-┌──────────────┐  ┌──────────────┐  ┌──────────────────┐
-│  Google Fonts │  │  Formspree   │  │  GitHub Actions  │
-│  (Pacifico,   │  │  (form POST) │  │  (CI/CD)         │
-│   Quicksand)  │  │              │  │                  │
-└──────────────┘  └──────────────┘  └──────────────────┘
+┌──────────────┐  ┌──────────────────┐  ┌──────────────────┐
+│  Google Fonts │  │  Formspree       │  │  GitHub Actions  │
+│  (Pacifico,   │  │  mykndrbk (LIVE) │  │  (CI/CD)         │
+│   Quicksand)  │  │  → Taylor email  │  │                  │
+└──────────────┘  └──────────────────┘  └──────────────────┘
 ```
 
 ## Key Architectural Decisions
@@ -80,10 +80,11 @@ External Services:
 ### 5. Tailwind CSS v4 with @theme
 - Custom colors defined in `@theme inline` block in `globals.css`
 - Custom utility classes (`.glass`, `.gradient-text`) in plain CSS
+- **Critical**: `postcss.config.mjs` MUST be present — without it, Tailwind v4 utility classes are not generated and the site renders unstyled
 - **Why**: Tailwind v4 uses CSS-native theming; custom glassmorphism classes are easier to maintain as plain CSS than as Tailwind plugins
 
 ### 6. Form Handling via Formspree
-- Form POSTs to Formspree API endpoint
+- Form POSTs to `https://formspree.io/f/mykndrbk` (LIVE)
 - No backend code needed
 - Graceful error fallback shows phone/email
 - **Why**: Static site can't process forms; Formspree free tier (50/month) is sufficient for a booking inquiry form
@@ -94,10 +95,10 @@ External Services:
 ```
 User fills form → clicks Submit
   → JavaScript FormData constructed (includes formatted date)
-  → POST to https://formspree.io/f/{endpoint_id}
+  → POST to https://formspree.io/f/mykndrbk
   → Formspree sends email to taylor@hellodarlingdesigns.net
-  → UI shows success message
-  → On error: shows fallback contact info
+  → UI shows success message with confetti emoji
+  → On error: shows fallback contact info (phone + email)
 ```
 
 ### Build & Deploy
@@ -110,6 +111,18 @@ Developer pushes to master
   → GitHub Pages deploys new version
   → Live at dustinhannon.github.io/DarlingDrinkCompany/
 ```
+
+## Project Configuration
+
+### Auto-Approve Permissions (`.claude/settings.json`)
+Claude Code is configured to auto-approve common operations (Read, Edit, Write, npm, git, gh, shell commands) to speed up development workflow.
+
+### Files Critical to Build
+| File | Purpose | What breaks without it |
+|------|---------|----------------------|
+| `postcss.config.mjs` | Tailwind CSS v4 PostCSS plugin | All utility classes missing, site unstyled |
+| `tsconfig.json` | `@/*` path alias | Component imports fail, build errors |
+| `next.config.ts` | Static export + basePath | No `/out/` directory, wrong asset paths |
 
 ## Performance Considerations
 
@@ -124,3 +137,4 @@ Developer pushes to master
 - **Image optimization**: Consider a CDN like Cloudflare or switching to Vercel for built-in image optimization
 - **CMS integration**: If Taylor wants to manage content, could add a headless CMS (Contentful, Sanity) and fetch at build time
 - **Analytics**: Could add Google Analytics or Plausible via the layout
+- **Replace filler reviews**: 5 of 6 testimonials are generated filler (see docs/CONTENT.md)

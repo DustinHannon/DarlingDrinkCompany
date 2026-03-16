@@ -42,7 +42,7 @@ Three glass levels are used throughout the site:
 - Blur: 16px
 - Border: white at 40% opacity
 - Shadow: rose-tinted (200, 100, 130 at 15%)
-- **Used for**: Menu cards, review cards, photo frames, nav links
+- **Used for**: Menu cards, review cards, photo frames, hero logo panel, nav links
 
 ### `.glass-strong` — Prominent panels
 - Background: white at 45% opacity
@@ -59,12 +59,27 @@ Three glass levels are used throughout the site:
 
 ## Gradient Text
 
-Section headings use a CSS gradient fill:
+Section headings use a CSS gradient fill. Note: `text-shadow` is intentionally **not** used on gradient text because it creates a visible overlay that dims the bottom of letters.
+
 ```css
 background: linear-gradient(135deg, #c2455a 0%, #e8a0bf 50%, #d4748f 100%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 ```
+
+## Hero Section Design
+
+The hero section includes these specific design choices:
+
+- **Logo**: Displayed inside a `glass rounded-3xl` panel with padding, giving it a frosted card appearance rather than a flat square image
+- **Title**: Uses `gradient-text` class without text-shadow to keep letters crisp
+- **Buttons**: Two CTAs — solid rose gradient ("Book Us") + glass outline ("View Our Menu")
+- **Scroll indicator**: Positioned at the absolute bottom of the hero section, below the buttons with adequate spacing. Uses a "Scroll" text label + down arrow SVG icon (replaces the earlier hard-to-see mouse/dot shape)
+
+## Navbar Design
+
+- **Logo**: Full logo image displayed with `object-contain` at responsive height (h-12 on mobile, h-14 on desktop) — no circular cropping, no text cutoff
+- **No separate text label**: The logo image itself contains the company name, so no additional text is rendered alongside it
 
 ## Animations
 
@@ -76,7 +91,7 @@ All animations use **Framer Motion**:
 | Hero logo | Page load | Scale from 0.8 to 1, fade in |
 | Hero text | Page load | Staggered fade-in with y offset (0.3s, 0.5s, 0.65s, 0.8s delays) |
 | Floating blobs | Continuous | Slow y-axis bobbing + subtle rotation, infinite loop |
-| Scroll indicator | Page load | Bouncing chevron at bottom of hero |
+| Scroll indicator | Page load | Bouncing "Scroll" label + arrow at bottom of hero |
 | Section fade-in | Scroll into view | `AnimatedSection` wrapper: fade + slide up (y: 60 to 0) |
 | Card hover | Mouse hover | Slight y lift (-4px) + subtle scale (1.01) |
 | Mobile menu | Toggle | Height + opacity animation with AnimatePresence |
@@ -96,9 +111,10 @@ background-attachment: fixed;
 - **Mobile-first** Tailwind classes
 - Navbar collapses to hamburger menu below `md` (768px)
 - Grid layouts switch from multi-column to single-column on mobile
+- Menu grid: 1 column on mobile → 2 on `sm` → 3 on `lg`
 - Hero text sizes scale: `text-5xl` → `sm:text-7xl` → `lg:text-8xl`
 - Form fields stack to single column on mobile, two columns on `sm`+
-- Logo text hidden on mobile, visible on `sm`+
+- Logo scales: `w-40` on mobile → `w-48` on `sm`+
 
 ## Custom Scrollbar (WebKit)
 
@@ -116,3 +132,12 @@ react-datepicker is fully restyled to match the glassmorphism theme:
 - Hover: soft pink (#fecdd3) with circular shape
 - Container: frosted glass with blur and rose shadow
 - Navigation arrows: white
+
+## Design Issues Resolved
+
+| Issue | Resolution |
+|-------|-----------|
+| Logo displayed as flat square | Wrapped in glass panel with rounded-3xl and padding |
+| Scroll indicator overlapping buttons | Moved to absolute bottom of hero section, outside content div, with `pb-24` spacing |
+| Gradient text dimmed at bottom | Removed `text-shadow` class that was overlaying the gradient |
+| Navbar logo cropping text | Changed from `rounded-full` circle to `object-contain` with responsive height |

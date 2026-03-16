@@ -10,39 +10,46 @@
   - Instagram: [@DarlingDrinkCo](https://www.instagram.com/DarlingDrinkCo)
 - **Press**: Featured on WJTV Channel 12 (Jackson, MS)
 
-## What They Offer
-- **Specialty Lemonades** (e.g., "Blush and Bashful", "The Alanis", "Southern Charm", "Pink Ladies", "Fruit Loop")
-- **Dirty Sodas** (Sprite, Dr Pepper, A&W based drinks with cream/flavors)
-- **Dirty Energy Drinks** (custom energy drinks with flavor combos and cream)
-- **Hot Chocolate** (seasonal/winter)
-- **Snacks**: Popcorn
-- Served from a pink mobile drink trailer with branded cups
+## What They Offer (Real Menu)
+**32 oz. Lemonades** — Plain $7 / Flavored $8
+- Strawberry, Blue Raspberry, Mango, Pineapple, Watermelon, Peach, Coconut, Granny Smith Apple, Cherry, Blue Cotton Candy
+
+**Specialty Lemonades** — $8
+- Tropical Sunrise, Pina Colada, Blue Hawaiian, Arnold Palmer, The Abby, Caramel Apple
+
+**Dirty Sodas with Cream** — $10
+- Southern Dew, The Darling, Coconut Wave, Butter Beer Coke, Pink Ladies, Southern Charm, Strawberry Sundrop
+
+**Dirty Sodas w/out Cream** — $10
+- Hawaiian Coke, Strawberry Refresher, Neon Nights, Fruit Loop
+
+**Dirty Alanis (Energy Drinks)** — $10
+- Sunburst, Cherry Jubilee, Blush & Bashful
+
+**Drinks & Snacks**
+- 32oz Sweet Tea $5, Soft Drinks $4, Ice Water $3, Candy $2, Nachos $8
 
 ## Event Types
-- Vendor events
-- School functions
-- Sports events
-- Festivals
-- Grand openings
-- Birthday parties / Weddings
-- Neighborhood gatherings
-- Corporate events
+- Vendor events, School functions, Sports events, Festivals
+- Grand openings, Birthday parties / Weddings
+- Neighborhood gatherings, Corporate events
 
 ## Branding
 - **Trailer**: Pink mobile drink trailer
-- **Logo**: Lemon/citrus glass with straw, floral accents, "DARLING" in bold serif, "Drink Company" below (file: `/companyinfo/logo.png`)
+- **Logo**: Lemon/citrus glass with straw, "DARLING" in bold serif, "Drink Company" below
+  - Original: `/companyinfo/real-logo.png`
+  - Site copy: `/public/images/logo.png`
 - **Primary Colors**: Rose pink (#E8A0BF), blush (#fda4af), white (#fff1f2)
 - **Accent Colors**: Mint/teal (#a7f3d0, #6ee7b7)
 - **Aesthetic**: Feminine, sweet, fun, approachable — cohesive pink branding throughout
-- **Branded cups** with Darling Drink Company stickers
-- **Feather flag**: "LEMONADE" / "SODA" banner at events
 
 ## Reference Images
-Company photos and marketing materials are in `/companyinfo/`. Renamed copies are in `/public/images/` for use on the site:
+Company photos and marketing materials are in `/companyinfo/`. Renamed copies in `/public/images/`:
 
 | Source File | Public Path | Description |
 |---|---|---|
-| `logo.png` | `images/logo.png` | Company logo |
+| `real-logo.png` | `images/logo.png` | Official company logo (current) |
+| `real-menu.png` | — | Real menu board (reference only, data extracted to Menu component) |
 | `585616436_*.jpg` | `images/deedee-serving.jpg` | Dee Dee serving at the trailer window |
 | `600547058_*.jpg` | `images/trailer-holiday.jpg` | Trailer with holiday balloon decorations |
 | `622764354_*.jpg` | `images/trailer-side.jpg` | Full side view of trailer |
@@ -62,57 +69,65 @@ Company photos and marketing materials are in `/companyinfo/`. Renamed copies ar
 - **Animations**: Framer Motion (scroll-triggered + hover effects)
 - **Date Picker**: react-datepicker (styled to match theme)
 - **Fonts**: Google Fonts via next/font — Pacifico (headings) + Quicksand (body)
-- **Form Handling**: Formspree (free tier, 50 submissions/month)
+- **Form Handling**: Formspree (endpoint `mykndrbk`, free tier 50 submissions/month)
 - **Static Export**: `next build` outputs to `/out/` for GitHub Pages
 - **TypeScript**: Strict mode enabled
 
 ## Project Structure
 ```
 DarlingDrinkCompany/
-├── .github/workflows/deploy.yml   # GitHub Actions: build + deploy to Pages
-├── companyinfo/                    # Original source photos and text
-├── public/images/                  # Renamed images used by the site
+├── .claude/settings.json              # Auto-approve permissions for Claude Code
+├── .github/workflows/deploy.yml       # GitHub Actions: build + deploy to Pages
+├── companyinfo/                       # Original source photos, logo, menu, text
+├── docs/
+│   ├── ARCHITECTURE.md                # System architecture and decisions
+│   ├── CONTENT.md                     # Real vs filler content tracking
+│   └── DESIGN.md                      # Color palette, typography, animations
+├── public/images/                     # Renamed images used by the site
+├── workingphotos/                     # Screenshots of site in progress (not deployed)
 ├── src/
 │   ├── app/
-│   │   ├── globals.css             # Tailwind theme, glassmorphism classes, date picker styles
-│   │   ├── layout.tsx              # Root layout (fonts, metadata, SEO)
-│   │   └── page.tsx                # Main page (assembles all sections)
+│   │   ├── globals.css                # Tailwind theme, glassmorphism, date picker styles
+│   │   ├── layout.tsx                 # Root layout (fonts, metadata, SEO)
+│   │   └── page.tsx                   # Main page (assembles all sections)
 │   └── components/
-│       ├── AnimatedSection.tsx      # Reusable scroll-triggered fade-in wrapper
-│       ├── Navbar.tsx               # Sticky nav with smooth-scroll + mobile hamburger
-│       ├── Hero.tsx                 # Hero section with logo, tagline, CTAs
-│       ├── About.tsx                # "Our Story" section with photos
-│       ├── Menu.tsx                 # Drink menu cards (4 categories)
-│       ├── Reviews.tsx              # Customer testimonials (1 real + 5 filler)
-│       ├── Press.tsx                # "As Seen On TV" WJTV feature section
-│       ├── BookUs.tsx               # Booking form with date picker + Formspree
-│       └── Footer.tsx               # Contact info, event list, social links
-├── next.config.ts                   # Static export + GitHub Pages basePath
-├── postcss.config.mjs               # Tailwind CSS v4 PostCSS plugin
-├── tsconfig.json                    # TypeScript config with @/* path alias
+│       ├── AnimatedSection.tsx         # Reusable scroll-triggered fade-in wrapper
+│       ├── Navbar.tsx                  # Sticky nav with full logo + mobile hamburger
+│       ├── Hero.tsx                    # Hero: glass logo panel, gradient title, CTAs, scroll indicator
+│       ├── About.tsx                   # "Our Story" section with photos
+│       ├── Menu.tsx                    # Real drink menu (6 categories with prices)
+│       ├── Reviews.tsx                 # Customer testimonials (1 real + 5 filler)
+│       ├── Press.tsx                   # "As Seen On TV" WJTV feature section
+│       ├── BookUs.tsx                  # Booking form with date picker + Formspree (live)
+│       └── Footer.tsx                  # Contact info, event list, social links
+├── next.config.ts                      # Static export + GitHub Pages basePath
+├── postcss.config.mjs                  # Tailwind CSS v4 PostCSS plugin
+├── tsconfig.json                       # TypeScript config with @/* path alias
 └── package.json
 ```
 
 ## Deployment
-- **Hosting**: GitHub Pages at https://dustinhannon.github.io/DarlingDrinkCompany/
-- **CI/CD**: GitHub Actions workflow (`.github/workflows/deploy.yml`) — auto-deploys on push to `master`
-- **Process**: Push to master → Actions builds with `npm run build` → uploads `/out/` → deploys to Pages
-- **basePath**: Set to `/DarlingDrinkCompany` in production for GitHub Pages subpath routing
+- **Live Site**: https://dustinhannon.github.io/DarlingDrinkCompany/
+- **Repo**: https://github.com/DustinHannon/DarlingDrinkCompany
+- **CI/CD**: GitHub Actions workflow — auto-deploys on push to `master`
+- **Process**: Push to master → Actions builds → uploads `/out/` → deploys to Pages
+- **basePath**: `/DarlingDrinkCompany` in production, empty in development
 
-## Setup for Contact Form (Formspree)
-The booking form currently uses a **placeholder** Formspree endpoint. To activate:
-1. Sign up at https://formspree.io (free tier = 50 submissions/month)
-2. Create a new form, set recipient to `taylor@hellodarlingdesigns.net`
-3. Copy the form endpoint ID (the part after `/f/`)
-4. Update `src/components/BookUs.tsx` line 43: replace `xpwdqjkl` with the real endpoint ID
-5. Push to master — the workflow will auto-deploy
+## Contact Form (Formspree) — LIVE
+- **Endpoint**: `https://formspree.io/f/mykndrbk`
+- **Recipient**: taylor@hellodarlingdesigns.net
+- **Free tier**: 50 submissions/month
+- **Config location**: `src/components/BookUs.tsx` line 43
 
 ## Design Decisions
 - **Single-page scrolling** — best for a service-based mobile business; all info in one flow
 - **Glassmorphism** — frosted glass panels (`.glass`, `.glass-strong`, `.glass-dark`) over a pink gradient background
+- **Hero logo in glass panel** — logo wrapped in frosted glass card to match site aesthetic (not a flat square)
+- **No text-shadow on gradient text** — removed because it was dimming the bottom of letters
+- **Scroll indicator** — "Scroll" label + down arrow at bottom of hero, positioned below buttons with spacing
 - **No dark mode** — brand is inherently light/pink; dark mode would fight the aesthetic
 - **Static export** — no server needed; fast, free hosting on GitHub Pages
-- **Filler reviews** — clearly marked as filler in code; 1 real review from Facebook included
+- **Filler reviews** — clearly marked in code and docs; 1 real review from Facebook included
 - **basePath conditional** — development runs at `/`, production at `/DarlingDrinkCompany` for GitHub Pages
 
 ## Commands
