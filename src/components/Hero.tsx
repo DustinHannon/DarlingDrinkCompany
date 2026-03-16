@@ -30,27 +30,30 @@ export default function Hero() {
         className="absolute bottom-32 left-1/4 w-16 h-16 rounded-full bg-mint-300/30 blur-sm"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pb-24">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          className="inline-block"
         >
-          <Image
-            src={`${basePath}/images/logo.png`}
-            alt="Darling Drink Company"
-            width={220}
-            height={220}
-            className="mx-auto mb-6 drop-shadow-lg"
-            priority
-          />
+          <div className="glass rounded-3xl p-6 sm:p-8 inline-block mx-auto mb-8">
+            <Image
+              src={`${basePath}/images/logo.png`}
+              alt="Darling Drink Company"
+              width={200}
+              height={200}
+              className="mx-auto w-40 sm:w-48 h-auto"
+              priority
+            />
+          </div>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="font-heading text-5xl sm:text-7xl lg:text-8xl gradient-text text-shadow mb-4"
+          className="font-heading text-5xl sm:text-7xl lg:text-8xl gradient-text mb-4"
         >
           Darling Drink Company
         </motion.h1>
@@ -92,23 +95,26 @@ export default function Hero() {
             View Our Menu
           </button>
         </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-6 h-10 rounded-full border-2 border-rose-400/50 flex justify-center pt-2"
-          >
-            <div className="w-1.5 h-3 bg-rose-400/60 rounded-full" />
-          </motion.div>
-        </motion.div>
       </div>
+
+      {/* Scroll indicator — positioned outside the content div at the very bottom */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="flex flex-col items-center gap-2"
+        >
+          <span className="text-xs font-semibold text-rose-400/70 tracking-widest uppercase">Scroll</span>
+          <svg className="w-5 h-5 text-rose-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
