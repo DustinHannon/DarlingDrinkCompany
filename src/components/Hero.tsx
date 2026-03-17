@@ -71,7 +71,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.65 }}
           className="text-base text-rose-500/70 font-medium mb-10"
         >
-          Madison, Mississippi&apos;s favorite mobile drink trailer
+          Central Mississippi&apos;s favorite mobile drink trailer
         </motion.p>
 
         <motion.div

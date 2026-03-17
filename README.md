@@ -1,12 +1,12 @@
 # Darling Drink Company
 
-The official website for **Darling Drink Company** — a family-run mobile drink trailer serving specialty lemonades, dirty sodas, and dirty energy drinks in Madison, Mississippi.
+The official website for **Darling Drink Company** — a family-run mobile drink trailer serving specialty lemonades, dirty sodas, and dirty energy drinks in Central Mississippi.
 
 **Live Site**: [darling-drink-company.vercel.app](https://darling-drink-company.vercel.app/)
 
 ## About
 
-Darling Drink Company is run by Taylor Hannon and her mom, Dee Dee. They bring their signature pink trailer to vendor events, school functions, festivals, parties, and neighborhood gatherings across the Madison, MS area. As seen on WJTV Channel 12!
+Darling Drink Company is run by Taylor Hannon and her mom, Dee Dee. They bring their signature pink trailer to vendor events, school functions, festivals, parties, and neighborhood gatherings across Central Mississippi. As seen on WJTV Channel 12!
 
 ## Tech Stack
 

@@ -3,7 +3,7 @@
 ## About the Business
 - **Business Name**: Darling Drink Company
 - **Owner**: Taylor Hannon (runs it with her mom, Dee Dee) — family-run company
-- **Location**: Madison, MS 39110 (Falls Crossing / Carpenter Cove area)
+- **Location**: Central Mississippi (based in Madison, MS area)
 - **Contact**: Taylor Hannon, 601-405-4281, taylor@hellodarlingdesigns.net
 - **Social Media**:
   - Facebook: [Darling Drink Company Group](https://www.facebook.com/groups/1729197157753383)

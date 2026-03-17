@@ -16,12 +16,12 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Darling Drink Company | Madison, MS Mobile Drink Trailer",
+  title: "Darling Drink Company | Central Mississippi Mobile Drink Trailer",
   description:
-    "Specialty lemonades, dirty sodas & dirty energy drinks served from our pink mobile drink trailer in Madison, Mississippi. Book us for your next event!",
+    "Specialty lemonades, dirty sodas & dirty energy drinks served from our pink mobile drink trailer in Central Mississippi. Book us for your next event!",
   keywords: [
     "Darling Drink Company",
-    "Madison MS",
+    "Central Mississippi",
     "mobile drink trailer",
     "specialty lemonade",
     "dirty soda",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Darling Drink Company",
-    description: "Madison, Mississippi's favorite mobile drink trailer. Specialty lemonades, dirty sodas & dirty energy drinks for your next event.",
+    description: "Central Mississippi's favorite mobile drink trailer. Specialty lemonades, dirty sodas & dirty energy drinks for your next event.",
     type: "website",
   },
 };

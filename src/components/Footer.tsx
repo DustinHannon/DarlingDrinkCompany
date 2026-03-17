@@ -17,7 +17,7 @@ export default function Footer() {
               className="mb-4"
             />
             <p className="text-rose-700/70 text-sm leading-relaxed">
-              Madison, Mississippi&apos;s favorite mobile drink trailer. Specialty lemonades, dirty sodas &amp; dirty energy drinks for your next event.
+              Central Mississippi&apos;s favorite mobile drink trailer. Specialty lemonades, dirty sodas &amp; dirty energy drinks for your next event.
             </p>
           </div>
 
@@ -94,7 +94,7 @@ export default function Footer() {
               </a>
             </div>
             <p className="text-sm text-rose-600/60 mt-4">
-              Madison, MS 39110
+              Central Mississippi
             </p>
           </div>
         </div>

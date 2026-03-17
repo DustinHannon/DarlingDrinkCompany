@@ -13,7 +13,7 @@ Source: `/companyinfo/text.txt` and Facebook group description.
 The About section uses Taylor's own words adapted for the website:
 - Family-run by Taylor Hannon and her mom, Dee Dee
 - Other family members often help at events
-- Based in Madison, MS 39110
+- Based in Central Mississippi
 - Community-focused, grateful for customer support
 
 ### Menu (Real — from `/companyinfo/real-menu.png`)

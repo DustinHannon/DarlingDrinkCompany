@@ -18,7 +18,7 @@ export default function About() {
             <div className="glass rounded-3xl p-8 sm:p-10">
               <p className="text-lg leading-relaxed mb-6 text-rose-800/80">
                 Darling Drink Company is a family-run mobile drink trailer based in
-                Madison, Mississippi. Founded by <strong>Taylor Hannon</strong> and
+                Central Mississippi. Founded by <strong>Taylor Hannon</strong> and
                 her mom, <strong>Dee Dee</strong>, we bring specialty drinks and
                 good vibes to events all across the area.
               </p>
