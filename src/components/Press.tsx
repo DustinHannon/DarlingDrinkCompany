@@ -5,8 +5,6 @@ import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
 
 export default function Press() {
-  const basePath = process.env.NODE_ENV === "production" ? "/DarlingDrinkCompany" : "";
-
   return (
     <section id="press" className="py-24 px-4 sm:px-6 lg:px-8 relative">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -31,7 +29,7 @@ export default function Press() {
               className="glass rounded-3xl p-3"
             >
               <Image
-                src={`${basePath}/images/wjtv-filming.jpg`}
+                src={"/images/wjtv-filming.jpg"}
                 alt="Darling Drink Company featured on WJTV Channel 12"
                 width={600}
                 height={400}
@@ -48,7 +46,7 @@ export default function Press() {
                 className="glass rounded-3xl p-3"
               >
                 <Image
-                  src={`${basePath}/images/wjtv-visit.jpg`}
+                  src={"/images/wjtv-visit.jpg"}
                   alt="Taylor and Dee Dee visiting WJTV studio"
                   width={600}
                   height={400}
@@ -58,7 +56,7 @@ export default function Press() {
 
               <div className="glass rounded-3xl p-6 text-center">
                 <Image
-                  src={`${basePath}/images/wjtv-promo.jpg`}
+                  src={"/images/wjtv-promo.jpg"}
                   alt="Darling Drink Company - As Seen on WJTV"
                   width={600}
                   height={300}

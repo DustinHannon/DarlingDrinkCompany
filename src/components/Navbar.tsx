@@ -6,9 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-const basePath =
-  process.env.NODE_ENV === "production" ? "/DarlingDrinkCompany" : "";
-
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -23,7 +20,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/" || pathname === basePath || pathname === basePath + "/";
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -40,7 +37,7 @@ export default function Navbar() {
           el.scrollIntoView({ behavior: "smooth" });
         }
       } else {
-        window.location.href = `${basePath}/${href}`;
+        window.location.href = `/${href}`;
       }
     }
   };
@@ -60,7 +57,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           <Link href="/" className="flex items-center cursor-pointer">
             <Image
-              src={`${basePath}/images/logo.png`}
+              src="/images/logo.png"
               alt="Darling Drink Company"
               width={140}
               height={56}

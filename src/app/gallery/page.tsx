@@ -7,9 +7,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 
-const basePath =
-  process.env.NODE_ENV === "production" ? "/DarlingDrinkCompany" : "";
-
 const galleryImages = [
   { src: "deedee-serving.jpg", alt: "Dee Dee serving at the trailer window" },
   { src: "trailer-side.jpg", alt: "Full side view of the Darling Drink trailer" },
@@ -69,11 +66,11 @@ export default function GalleryPage() {
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                   onClick={() =>
-                    setLightbox(`${basePath}/images/gallery/${img.src}`)
+                    setLightbox(`/images/gallery/${img.src}`)
                   }
                 >
                   <Image
-                    src={`${basePath}/images/gallery/${img.src}`}
+                    src={`/images/gallery/${img.src}`}
                     alt={img.alt}
                     width={800}
                     height={600}

@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function Hero() {
-  const basePath = process.env.NODE_ENV === "production" ? "/DarlingDrinkCompany" : "";
-
   const handleScroll = (href: string) => {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -39,7 +37,7 @@ export default function Hero() {
         >
           <div className="glass rounded-3xl p-6 sm:p-8 inline-block mx-auto mb-8">
             <Image
-              src={`${basePath}/images/logo.png`}
+              src="/images/logo.png"
               alt="Darling Drink Company"
               width={200}
               height={200}

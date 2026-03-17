@@ -79,8 +79,6 @@ const menuCategories = [
 type MenuItem = string | { name: string; desc: string };
 
 export default function Menu() {
-  const basePath = process.env.NODE_ENV === "production" ? "/DarlingDrinkCompany" : "";
-
   return (
     <section id="menu" className="py-24 px-4 sm:px-6 lg:px-8 relative">
       {/* Background decoration */}
@@ -103,7 +101,7 @@ export default function Menu() {
         <AnimatedSection delay={0.1}>
           <div className="glass rounded-3xl p-3 mb-16 max-w-4xl mx-auto">
             <Image
-              src={`${basePath}/images/trailer-side.jpg`}
+              src="/images/trailer-side.jpg"
               alt="Darling Drink Company trailer"
               width={900}
               height={500}

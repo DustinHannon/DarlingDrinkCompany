@@ -4,8 +4,6 @@ import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
 
 export default function About() {
-  const basePath = process.env.NODE_ENV === "production" ? "/DarlingDrinkCompany" : "";
-
   return (
     <section id="about" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
@@ -41,7 +39,7 @@ export default function About() {
             <div className="relative">
               <div className="glass rounded-3xl p-3 rotate-2 hover:rotate-0 transition-transform duration-500">
                 <Image
-                  src={`${basePath}/images/taylor-deedee.jpg`}
+                  src="/images/taylor-deedee.jpg"
                   alt="Taylor and Dee Dee - Darling Drink Company"
                   width={600}
                   height={500}
@@ -50,7 +48,7 @@ export default function About() {
               </div>
               <div className="absolute -bottom-6 -left-6 glass rounded-2xl p-3 -rotate-3 hover:rotate-0 transition-transform duration-500 w-48">
                 <Image
-                  src={`${basePath}/images/drink-pink.jpg`}
+                  src="/images/drink-pink.jpg"
                   alt="Darling Drink Company pink drink"
                   width={200}
                   height={200}

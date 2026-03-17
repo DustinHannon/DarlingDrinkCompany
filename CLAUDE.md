@@ -70,14 +70,14 @@ Company photos and marketing materials are in `/companyinfo/`. Renamed copies in
 - **Date Picker**: react-datepicker (styled to match theme)
 - **Fonts**: Google Fonts via next/font — Pacifico (headings) + Quicksand (body)
 - **Form Handling**: Formspree (endpoint `mykndrbk`, free tier 50 submissions/month)
-- **Static Export**: `next build` outputs to `/out/` for GitHub Pages
+- **Hosting**: Vercel (auto-deploys on push, Next.js Image Optimization enabled)
 - **TypeScript**: Strict mode enabled
 
 ## Project Structure
 ```
 DarlingDrinkCompany/
 ├── .claude/settings.json              # Auto-approve permissions for Claude Code
-├── .github/workflows/deploy.yml       # GitHub Actions: build + deploy to Pages
+├── .vercel/                           # Vercel project config (auto-generated)
 ├── companyinfo/                       # Original source photos, logo, menu, text
 ├── docs/
 │   ├── ARCHITECTURE.md                # System architecture and decisions
@@ -102,18 +102,18 @@ DarlingDrinkCompany/
 │       ├── Press.tsx                   # "As Seen On TV" WJTV feature section
 │       ├── BookUs.tsx                  # Booking form with date picker + Formspree (live)
 │       └── Footer.tsx                  # Contact info, event list, social links
-├── next.config.ts                      # Static export + GitHub Pages basePath
+├── next.config.ts                      # Next.js configuration
 ├── postcss.config.mjs                  # Tailwind CSS v4 PostCSS plugin
 ├── tsconfig.json                       # TypeScript config with @/* path alias
 └── package.json
 ```
 
 ## Deployment
-- **Live Site**: https://dustinhannon.github.io/DarlingDrinkCompany/
+- **Live Site**: https://darling-drink-company.vercel.app/
 - **Repo**: https://github.com/DustinHannon/DarlingDrinkCompany
-- **CI/CD**: GitHub Actions workflow — auto-deploys on push to `master`
-- **Process**: Push to master → Actions builds → uploads `/out/` → deploys to Pages
-- **basePath**: `/DarlingDrinkCompany` in production, empty in development
+- **Hosting**: Vercel (team "OneMan") — auto-deploys on push to `master`
+- **Process**: Push to master → Vercel builds → deploys to production
+- **Preview**: Pull requests get automatic preview deployments
 
 ## Contact Form (Formspree) — LIVE
 - **Endpoint**: `https://formspree.io/f/mykndrbk`
@@ -129,13 +129,12 @@ DarlingDrinkCompany/
 - **No text-shadow on gradient text** — removed because it was dimming the bottom of letters
 - **Scroll indicator** — "Scroll" label + down arrow at bottom of hero, positioned below buttons with spacing
 - **No dark mode** — brand is inherently light/pink; dark mode would fight the aesthetic
-- **Static export** — no server needed; fast, free hosting on GitHub Pages
+- **Vercel hosting** — full Next.js support including Image Optimization, preview deployments, and edge network
 - **Filler reviews** — clearly marked in code and docs; 1 real review from Facebook included
-- **basePath conditional** — development runs at `/`, production at `/DarlingDrinkCompany` for GitHub Pages
 
 ## Commands
 ```bash
 npm run dev        # Start dev server at http://localhost:3000
-npm run build      # Build static export to /out/
+npm run build      # Build for production
 npm run lint       # Run ESLint
 ```

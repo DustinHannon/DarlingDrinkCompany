@@ -3,8 +3,6 @@
 import Image from "next/image";
 
 export default function Footer() {
-  const basePath = process.env.NODE_ENV === "production" ? "/DarlingDrinkCompany" : "";
-
   return (
     <footer className="glass-dark py-16 px-4 sm:px-6 lg:px-8 mt-12">
       <div className="max-w-6xl mx-auto">
@@ -12,7 +10,7 @@ export default function Footer() {
           {/* Logo & tagline */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Image
-              src={`${basePath}/images/logo.png`}
+              src="/images/logo.png"
               alt="Darling Drink Company"
               width={120}
               height={120}

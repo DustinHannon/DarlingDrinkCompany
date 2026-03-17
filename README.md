@@ -2,7 +2,7 @@
 
 The official website for **Darling Drink Company** — a family-run mobile drink trailer serving specialty lemonades, dirty sodas, and dirty energy drinks in Madison, Mississippi.
 
-**Live Site**: [dustinhannon.github.io/DarlingDrinkCompany](https://dustinhannon.github.io/DarlingDrinkCompany/)
+**Live Site**: [darling-drink-company.vercel.app](https://darling-drink-company.vercel.app/)
 
 ## About
 
@@ -10,13 +10,13 @@ Darling Drink Company is run by Taylor Hannon and her mom, Dee Dee. They bring t
 
 ## Tech Stack
 
-- **Next.js 16** (React 19) with App Router and static export
+- **Next.js 16** (React 19) with App Router
 - **Tailwind CSS v4** with custom glassmorphism theme
 - **Framer Motion** for scroll-triggered animations
 - **react-datepicker** for the event booking calendar
 - **Google Fonts** — Pacifico (headings) + Quicksand (body)
 - **Formspree** for contact form submissions (live)
-- **GitHub Pages** for hosting (auto-deployed via GitHub Actions)
+- **Vercel** for hosting (auto-deployed on push via Git integration)
 
 ## Getting Started
 
@@ -41,7 +41,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ```bash
 npm run build
 ```
-Static output is generated in the `/out/` directory.
 
 ## Project Structure
 
@@ -72,7 +71,7 @@ src/
 
 ## Deployment
 
-The site auto-deploys to GitHub Pages on every push to `master` via the GitHub Actions workflow at `.github/workflows/deploy.yml`.
+The site auto-deploys to Vercel on every push to `master` via Git integration. Preview deployments are created for pull requests automatically.
 
 ## Contact
 
