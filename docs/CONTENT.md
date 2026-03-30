@@ -42,6 +42,7 @@ The entire menu is sourced from the real trailer menu board. All items, descript
 | Pink Ladies | Sprite + Strawberry + Vanilla + Coconut Cream |
 | Southern Charm | Dr. Pepper + Cherry + Vanilla + Cream |
 | Strawberry Sundrop | Sunkist + Strawberry + Pineapple + Cream |
+| Campfire | Dr Pepper or Root Beer + Marshmallow Sauce + Toasted Marshmallow Syrup + Vanilla + Cold Foam |
 
 **Dirty Sodas w/out Cream** — $10
 | Drink | Ingredients |
@@ -50,6 +51,7 @@ The entire menu is sourced from the real trailer menu board. All items, descript
 | Strawberry Refresher | Lemonade + Sprite + Strawberry |
 | Neon Nights | Sprite + Blue Raspberry + Pineapple Juice |
 | Fruit Loop | Sprite + Strawberry + Watermelon + Pineapple |
+| Pina Colada Sprite | Sprite + Coconut + Pineapple |
 
 **Dirty Alanis (Energy Drinks)** — $10
 | Drink | Ingredients |
@@ -57,6 +59,7 @@ The entire menu is sourced from the real trailer menu board. All items, descript
 | Sunburst | Orange Kiss Alani + Vanilla + Coconut + Peach + Cream |
 | Cherry Jubilee | Cherry Twist Alani + Cherry + Peach + Mango + Cream |
 | Blush & Bashful | Pink Slush Alani + Pineapple + Vanilla + Strawberry + Cream |
+| Mississippi Moon | Cosmic Stardust Alani + Raspberry + Vanilla + Sprite + Coconut + Cream + Cold Foam |
 
 **Drinks & Snacks**
 | Item | Price |

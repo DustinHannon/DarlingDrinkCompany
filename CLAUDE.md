@@ -18,13 +18,13 @@
 - Tropical Sunrise, Pina Colada, Blue Hawaiian, Arnold Palmer, The Abby, Caramel Apple
 
 **Dirty Sodas with Cream** — $10
-- Southern Dew, The Darling, Coconut Wave, Butter Beer Coke, Pink Ladies, Southern Charm, Strawberry Sundrop
+- Southern Dew, The Darling, Coconut Wave, Butter Beer Coke, Pink Ladies, Southern Charm, Strawberry Sundrop, Campfire
 
 **Dirty Sodas w/out Cream** — $10
-- Hawaiian Coke, Strawberry Refresher, Neon Nights, Fruit Loop
+- Hawaiian Coke, Strawberry Refresher, Neon Nights, Fruit Loop, Pina Colada Sprite
 
 **Dirty Alanis (Energy Drinks)** — $10
-- Sunburst, Cherry Jubilee, Blush & Bashful
+- Sunburst, Cherry Jubilee, Blush & Bashful, Mississippi Moon
 
 **Drinks & Snacks**
 - 32oz Sweet Tea $5, Soft Drinks $4, Ice Water $3, Candy $2, Nachos $8
