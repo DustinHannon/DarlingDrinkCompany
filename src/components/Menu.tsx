@@ -39,6 +39,7 @@ const menuCategories = [
       { name: "Pink Ladies", desc: "Sprite + Strawberry + Vanilla + Coconut Cream" },
       { name: "Southern Charm", desc: "Dr. Pepper + Cherry + Vanilla + Cream" },
       { name: "Strawberry Sundrop", desc: "Sunkist + Strawberry + Pineapple + Cream" },
+      { name: "Campfire", desc: "Dr Pepper or Root Beer + Marshmallow Sauce + Toasted Marshmallow Syrup + Vanilla + Cold Foam" },
     ],
   },
   {
@@ -50,6 +51,7 @@ const menuCategories = [
       { name: "Strawberry Refresher", desc: "Lemonade + Sprite + Strawberry" },
       { name: "Neon Nights", desc: "Sprite + Blue Raspberry + Pineapple Juice" },
       { name: "Fruit Loop", desc: "Sprite + Strawberry + Watermelon + Pineapple" },
+      { name: "Pina Colada Sprite", desc: "Sprite + Coconut + Pineapple" },
     ],
   },
   {
@@ -60,6 +62,7 @@ const menuCategories = [
       { name: "Sunburst", desc: "Orange Kiss Alani + Vanilla + Coconut + Peach + Cream" },
       { name: "Cherry Jubilee", desc: "Cherry Twist Alani + Cherry + Peach + Mango + Cream" },
       { name: "Blush & Bashful", desc: "Pink Slush Alani + Pineapple + Vanilla + Strawberry + Cream" },
+      { name: "Mississippi Moon", desc: "Cosmic Stardust Alani + Raspberry + Vanilla + Sprite + Coconut + Cream + Cold Foam" },
     ],
   },
   {
